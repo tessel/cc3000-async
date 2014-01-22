@@ -5,16 +5,15 @@
  *      Author: Johannes
  */
 
+#include "cc3000_platform.h"
+
+#ifndef CC3000_EVENT_HANDLER_H_
+#define CC3000_EVENT_HANDLER_H_
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-#include "cc3000_platform.h"
-
-#ifndef CC3000_EVENT_HANDLER_H_
-#define CC3000_EVENT_HANDLER_H_
 
 #define HCI_TYPE_OFFSET				(0)
 #define HCI_OPCODE_LSB_OFFSET		(1)
@@ -280,8 +279,8 @@ extern void cc3000_get_return_stream(uint8 *data,uint8 offset,uint8 size);
 //*****************************************************************************
 extern uint8 get_return_size(void);
 
-#endif /* CC3000_EVENT_HANDLER_H_ */
-
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* CC3000_EVENT_HANDLER_H_ */

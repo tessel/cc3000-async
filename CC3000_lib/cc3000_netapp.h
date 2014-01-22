@@ -4,16 +4,15 @@
  *  Created on: 12.09.2013
  *      Author: Johannes
  */
+#ifndef CC3000_NETAPP_H_
+#define CC3000_NETAPP_H_
+
+#include "cc3000_platform.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-#ifndef CC3000_NETAPP_H_
-#define CC3000_NETAPP_H_
-
-#include "cc3000_platform.h"
 
 //*****************************************************************************
 //
@@ -93,10 +92,8 @@ extern void cc3000_netapp_dhcp(uint32 aucIP, uint32 aucSubnetMask, uint32 aucDef
 //*****************************************************************************
 extern void netapp_timeout_values(uint32 aucDHCP, uint32 aucARP, uint32 aucKeepalive, uint32 aucInactivity);
 
-
-#endif /* CC3000_NETAPP_H_ */
-
 #ifdef __cplusplus
 }
 #endif
 
+#endif /* CC3000_NETAPP_H_ */

@@ -5,15 +5,15 @@
  *      Author: Johannes
  */
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 #include "cc3000_platform.h"
 
 #ifndef CC3000_HCI_H_
 #define CC3000_HCI_H_
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #define HCI_COMMAND_HEADER_LENGTH 	4
 #define HCI_DATA_HEADER_LENGTH 		5
@@ -132,9 +132,8 @@ extern void cc3000_hci_send_uint16(uint16 u);
 extern void cc3000_hci_send_uint8(uint8 u);
 extern void cc3000_hci_send_stream(uint8 *u, uint8 size);
 
-#endif /* CC3000_HCI_H_ */
-
 #ifdef __cplusplus
 }
 #endif
 
+#endif /* CC3000_HCI_H_ */

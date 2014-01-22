@@ -4,16 +4,15 @@
  *  Created on: 09.09.2013
  *      Author: Johannes
  */
+#ifndef CC3000_SOCKET_H_
+#define CC3000_SOCKET_H_
+
+#include "cc3000_platform.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-#ifndef CC3000_SOCKET_H_
-#define CC3000_SOCKET_H_
-
-#include "cc3000_platform.h"
 
 // Socket domains / families
 #define  AF_INET                2
@@ -432,9 +431,8 @@ extern void cc3000_socket_close(uint8 sd);
 //*****************************************************************************
 extern int8 cc3000_socket_mdns_advertise(uint8 mdns_enabled, uint8 *service_name);
 
-#endif /* CC3000_SOCKET_H_ */
-
 #ifdef __cplusplus
 }
 #endif
 
+#endif /* CC3000_SOCKET_H_ */

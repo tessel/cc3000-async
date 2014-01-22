@@ -5,15 +5,15 @@
  *      Author: Johannes
  */
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 #include "cc3000_platform.h"
 
 #ifndef CC3000_GENERAL_H_
 #define CC3000_GENERAL_H_
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 #define CC3000_SW_VERSION			0.03
 
@@ -87,9 +87,8 @@ extern uint8 * uns16_to_stream( uint8 * i, uint16 n);
 extern uint16 stream_to_uns16(uint8 * i);
 extern uint32 stream_to_uns32(uint8 * i);
 
-#endif /* CC3000_GENERAL_H_ */
-
 #ifdef __cplusplus
 }
 #endif
 
+#endif /* CC3000_GENERAL_H_ */

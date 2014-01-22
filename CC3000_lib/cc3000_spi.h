@@ -5,13 +5,13 @@
  *      Author: Johannes
  */
 
+#ifndef CC3000_SPI_H_
+#define CC3000_SPI_H_
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-#ifndef CC3000_SPI_H_
-#define CC3000_SPI_H_
 
 #define SPI_OPERATION_WRITE 0x01
 #define SPI_OPERATION_READ  0x03
@@ -58,9 +58,8 @@ extern void cc3000_spi_finish_send(uint8 padding_byte_required);
 //*****************************************************************************
 extern uint16 cc3000_spi_receive(void);
 
-#endif /* CC3000_SPI_H_ */
-
 #ifdef __cplusplus
 }
 #endif
 
+#endif /* CC3000_SPI_H_ */

@@ -4,16 +4,16 @@
  *  Created on: 05.09.2013
  *      Author: Johannes
  */
+#ifndef CC3000_PLATFORM_H_
+#define CC3000_PLATFORM_H_
+
+#include <stdio.h>
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
 
-#ifndef CC3000_PLATFORM_H_
-#define CC3000_PLATFORM_H_
-
-#include <stdio.h>
 
 #define CC3000_TRACE_LEVEL_ALL		0xff
 #define CC3000_TRACE_LEVEL_DEBUG	0x08
@@ -154,9 +154,8 @@ extern void cc3000_spi_send(uint8 data);
 //*****************************************************************************
 extern uint8 cc3000_spi_recv(void);
 
-#endif /* CC3000_PLATFORM_H_ */
-
 #ifdef __cplusplus
 }
 #endif
 
+#endif /* CC3000_PLATFORM_H_ */

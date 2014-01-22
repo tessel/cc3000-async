@@ -5,15 +5,15 @@
  *      Author: Johannes
  */
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
 #ifndef CC3000_FLOW_HANDLER_H_
 #define CC3000_FLOW_HANDLER_H_
 
 #include "cc3000_platform.h"
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 
 // define all the different states the cc3000 needs to execute
 #define STATE_IDLE			0
@@ -69,9 +69,8 @@ extern void cc3000_flow_handler(void);
 //*****************************************************************************
 extern void cc3000_fh_set_active(uint8 state);
 
-
-#endif /* CC3000_FLOW_HANDLER_H_ */
-
 #ifdef __cplusplus
 }
 #endif
+
+#endif /* CC3000_FLOW_HANDLER_H_ */

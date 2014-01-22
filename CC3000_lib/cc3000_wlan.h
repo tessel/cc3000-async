@@ -4,16 +4,15 @@
  *  Created on: 05.09.2013
  *      Author: Johannes
  */
+#ifndef CC3000_WLAN_H_
+#define CC3000_WLAN_H_
+
+#include "cc3000_platform.h"
 
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-#ifndef CC3000_WLAN_H_
-#define CC3000_WLAN_H_
-
-#include "cc3000_platform.h"
 
 #define ETH_ALEN			6
 #define MAXIMAL_SSID_LENGTH	32
@@ -229,9 +228,8 @@ extern void cc3000_wlan_add_profile(uint32 ulSecType,
 //*****************************************************************************
 extern void cc3000_wlan_del_profile(uint32 ulIndex);
 
-#endif /* CC3000_WLAN_H_ */
-
 #ifdef __cplusplus
 }
 #endif
 
+#endif /* CC3000_WLAN_H_ */
