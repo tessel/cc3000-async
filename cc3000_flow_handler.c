@@ -21,7 +21,7 @@ ip_addr_t tcp_ip;
 
 int8 socket;
 
-fd_set readsock, writesock, exceptsock;
+cc3000_fd_set readsock, writesock, exceptsock;
 sockaddr  tSocketAddr;
 sockaddr clientaddr;
 socklen_t addrlen;

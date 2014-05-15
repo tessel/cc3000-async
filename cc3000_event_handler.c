@@ -10,7 +10,6 @@
 #include "cc3000_general.h"
 #include "cc3000_hci.h"
 #include "cc3000_spi.h"
-#include "lcd_HE_12832.h"
 
 // the desired state (is beeing increased after a command has been sent)
 uint32 cc3000_desired_state = 0;
