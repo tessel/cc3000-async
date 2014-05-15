@@ -379,7 +379,7 @@ void cc3000_wlan_add_profile(uint32 ulSecType,
 			cc3000_hci_send_stream(ucSsid, ulSsidLen);
 
 			for(i = 0; i < 4; i++){
-				*p = &ucPf_OrKey[i * ulPairwiseCipher_Or_TxKeyLen];
+				p = &ucPf_OrKey[i * ulPairwiseCipher_Or_TxKeyLen];
 				cc3000_hci_send_stream(p, ulPairwiseCipher_Or_TxKeyLen);
 			}
 		}

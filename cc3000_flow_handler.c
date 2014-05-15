@@ -389,11 +389,11 @@ void cc3000_flow_handler(void){
 
 					status = cc3000_get_select(&readsock, &writesock, &exceptsock);
 					//printf("***SECELCT STATUS: %i***\n\r",status);
-					if (FD_ISSET(clientstatus, &readsock)){
+					if (cc3000_FD_ISSET(clientstatus, &readsock)){
 						// we can read
 						cc3000_fh_set_active(STATE_SC_REC_REQ);
 					}
-					else if (FD_ISSET(clientstatus, &writesock)){
+					else if (cc3000_FD_ISSET(clientstatus, &writesock)){
 						// we can write
 						if(counter<=1000){
 							cc3000_fh_set_active(STATE_SC_TRX_DATA);
@@ -402,7 +402,7 @@ void cc3000_flow_handler(void){
 							cc3000_fh_set_active(STATE_SC_CLOSE);
 						}
 					}
-					else if (FD_ISSET(clientstatus, &exceptsock)){
+					else if (cc3000_FD_ISSET(clientstatus, &exceptsock)){
 						// we don't know what to do...
 						printf("i don't know what a exceptsock is.. but we have one\n\r");
 						_cc3000_fh_set_active_sent(STATE_IDLE);
