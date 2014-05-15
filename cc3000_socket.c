@@ -238,13 +238,17 @@ void cc3000_bind(uint8 sd, uint16 port){
 void cc3000_setsockopt(uint8 sd, uint32 level, uint32 optname, const void *optval, socklen_t optlen){
 
 	cc3000_desired_state++;
-	cc3000_hci_start_command(HCI_CMND_SETSOCKOPT,22);
+	cc3000_hci_start_command(HCI_CMND_SETSOCKOPT,20+optlen);
 	cc3000_hci_send_uint32(sd);
 	cc3000_hci_send_uint32(level);
 	cc3000_hci_send_uint32(optname);
 	cc3000_hci_send_uint32(0x00000008);
 	cc3000_hci_send_uint32(optlen);
-	cc3000_hci_send_uint16(optval);
+	if (optlen == 2) {
+		cc3000_hci_send_uint16(*(uint16*)optval);
+	} else if (optlen == 4) {
+		cc3000_hci_send_uint32(*(uint32*)optval);
+	}
 	cc3000_hci_end_command();
 	cc3000_hci_expect(HCI_EVNT_SETSOCKOPT);
 
