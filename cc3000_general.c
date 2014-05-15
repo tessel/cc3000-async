@@ -39,8 +39,6 @@ void cc3000_general_startup(uint8 patches_request) {
 #endif
 
 
-	cc3000_set_pin_EN();
-
 	cc3000_state.connected = 0;
 	cc3000_state.dhcp_complete = 0;
 	cc3000_state.init_status = 0;
