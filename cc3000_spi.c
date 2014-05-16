@@ -120,7 +120,7 @@ uint16 cc3000_spi_receive(void){
 #endif
 
 
-	if ((spi_length > 255) || (spi_length == 0)) {
+	if ((spi_length > CC300_SPI_RX_BUFFER_SIZE) || (spi_length == 0)) {
 #if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
 		debug_str("ERR: spi length\n");
 #endif
