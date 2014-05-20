@@ -54,6 +54,7 @@ extern uint16 cc3000_buffer_length;
 //*****************************************************************************
 extern void cc3000_start(uint8 patches_request);
 extern void cc3000_stop();
+
 //*****************************************************************************
 //
 //! cc3000_general_req_buffer_size
@@ -81,7 +82,7 @@ extern void cc3000_general_req_buffer_size(void);
 //!
 //
 //*****************************************************************************
-extern uint8 cc3000_general_read_buffer_size(uint8 *hci_free_buffers, uint16 *hci_buffer_length);
+extern uint8 cc3000_general_get_buffer_size();
 
 extern uint8 * uns32_to_stream( uint8 * i, uint32 n);
 extern uint8 * uns16_to_stream( uint8 * i, uint16 n);

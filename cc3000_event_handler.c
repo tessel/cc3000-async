@@ -355,6 +355,18 @@ uint32 cc3000_get_return_uint32(uint8 offset){
 
 	return ret_data;
 }
+
+
+uint16 cc3000_get_return_uint16(uint8 offset){
+	uint16 ret_data;
+
+	ret_data  = cc3000_return_buffer[1+offset];
+	ret_data <<= 8;
+	ret_data  += cc3000_return_buffer[0+offset];
+
+	return ret_data;
+}
+
 //*****************************************************************************
 //
 //! cc3000_get_return_int32

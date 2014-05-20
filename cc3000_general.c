@@ -135,50 +135,12 @@ void cc3000_general_req_buffer_size(void){
 //!
 //
 //*****************************************************************************
-uint8 cc3000_general_read_buffer_size(uint8 *hci_free_buffers, uint16 *hci_buffer_length){
-
-	uint8 status;
-	uint8 *ptr;
-
-#if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
-	debug_str("cc3000_general_read_buffer_size\n");
-#endif
-
-	//ToDo: do this without the spi_rx_buffer, instead use cc3000_get_return_stream
-	status = cc3000_spi_rx_buffer[4];
-	ptr = &cc3000_spi_rx_buffer[5];
-	*hci_free_buffers = *ptr++;
-	*hci_buffer_length = stream_to_uns16(ptr);
+uint8 cc3000_general_get_buffer_size(){
+	cc3000_free_buffers = cc3000_get_return_uint8(0);
+	cc3000_buffer_length = cc3000_get_return_uint16(1);
 
 	cc3000_state.init_status |= CC3000_IS_BUFFER_SIZE;
 
-	return status;
+	return 0;
 }
 
-
-
-uint8 * uns32_to_stream( uint8 * i, uint32 n) {
-
-	*(i)++ = (uint8) (n & 0xff);			// lsb
-	*(i)++ = (uint8) ((n >> 8 ) & 0xff);
-	*(i)++ = (uint8) ((n >> 16) & 0xff);
-	*(i)++ = (uint8) ((n >> 24) & 0xff);	// msb
-	return i;
-}
-
-uint8 * uns16_to_stream( uint8 * i, uint16 n) {
-
-	*(i)++ = (uint8) (n & 0xff);				// lsb first
-	*(i)++ = (uint8) ((n >> 8 ) & 0xff);		// msb second
-
-	return i;
-}
-
-uint16 stream_to_uns16(uint8 * i) {
-	return	(uint16)(*i);
-}
-
-// we ARE little endian!
-uint32 stream_to_uns32(uint8 * i) {
-	return	(uint32) *i;
-}

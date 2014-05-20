@@ -223,6 +223,9 @@ extern uint8 cc3000_get_return_uint8(uint8 offset);
 //
 //*****************************************************************************
 extern int8 cc3000_get_return_int8(uint8 offset);
+
+extern uint16 cc3000_get_return_uint16(uint8 offset);
+
 //*****************************************************************************
 //
 //! cc3000_get_return_uint32
