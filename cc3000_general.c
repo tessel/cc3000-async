@@ -85,26 +85,9 @@ void cc3000_start(uint8 patches_request) {
 
 	cc3000_deassert_cs();
 
-	// wait for irq
-#if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
-	debug_str("Waiting for IRQ line to go low (active)\n");
-#endif
-	// todo: add timeout here
-	while (cc3000_read_irq_pin() != 0);
-#if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
-	debug_str("receive data\n");
-#endif
-
-	cc3000_spi_receive();
-	cc3000_deassert_cs();
-	cc3000_event_handler(cc3000_spi_rx_buffer);
-
-#if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
-	debug_str("Waiting for IRQ line to go high (in active)\n");
-#endif
-	// todo: add timeout here
-	while (cc3000_read_irq_pin() != 1);
-
+	cc3000_desired_state++;
+	cc3000_hci_expect(HCI_CMND_SIMPLE_LINK_START);
+	
 	// now turn interrupts on
 	cc3000_interrupt_enable();
 }
