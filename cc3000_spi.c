@@ -123,6 +123,7 @@ uint16 cc3000_spi_receive(void){
 #if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
 		debug_str("ERR: spi length\n");
 #endif
+		cc3000_deassert_cs();
 		return(0);
 	}
 
@@ -135,7 +136,10 @@ uint16 cc3000_spi_receive(void){
 #if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
 		debug_nl();
 #endif
-	// CS left disabled
+
+	cc3000_event_handler(cc3000_spi_rx_buffer);
+	
+	cc3000_deassert_cs();
 	return 1;
 }
 

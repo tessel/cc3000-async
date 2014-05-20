@@ -252,7 +252,6 @@ uint8 cc3000_event_handler(uint8 *data){
 		default:
 			break;
 	}
-	cc3000_deassert_cs();
 	return 1;
 }
 //*****************************************************************************
