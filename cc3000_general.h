@@ -52,7 +52,8 @@ extern uint16 cc3000_buffer_length;
 //!
 //
 //*****************************************************************************
-extern void cc3000_general_startup(uint8 patches_request);
+extern void cc3000_start(uint8 patches_request);
+extern void cc3000_stop();
 //*****************************************************************************
 //
 //! cc3000_general_req_buffer_size

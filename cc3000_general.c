@@ -32,7 +32,7 @@ uint16 cc3000_buffer_length;
 //!
 //
 //*****************************************************************************
-void cc3000_general_startup(uint8 patches_request) {
+void cc3000_start(uint8 patches_request) {
 
 #if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_STARTUP)
 	debug_str("cc3000_general_startup\n");
@@ -107,13 +107,16 @@ void cc3000_general_startup(uint8 patches_request) {
 
 	// now turn interrupts on
 	cc3000_interrupt_enable();
-
-#if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
-	debug_str("All done.\n");
-	debug_str("It is time to read the buffer size\n");
-#endif
-
 }
+
+void cc3000_stop() {
+	cc3000_interrupt_disable();
+	cc3000_clear_pin_WL_EN();
+
+	// todo: put timeout here
+	while (cc3000_read_irq_pin() != 1);
+}
+
 //*****************************************************************************
 //
 //! cc3000_general_req_buffer_size
