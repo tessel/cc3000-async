@@ -12,9 +12,9 @@
 #include "cc3000_spi.h"
 
 // the desired state (is beeing increased after a command has been sent)
-uint32 cc3000_desired_state = 0;
+volatile uint32 cc3000_desired_state = 0;
 // the current state (is beeing increased after a expected command has been received)
-uint32 cc3000_current_state = 0;
+volatile uint32 cc3000_current_state = 0;
 // buffer to hold the received payload
 uint8 cc3000_return_buffer[CC300_SPI_RX_BUFFER_SIZE];
 // number of bytes returned
@@ -269,6 +269,12 @@ uint8 cc3000_event_handler(uint8 *data){
 uint8 cc3000_is_ready(void){
 	return (cc3000_desired_state == cc3000_current_state) ? 1 : 0;
 }
+
+/// Wait for the current CC3000 request to complete
+void cc3000_wait(void) {
+	while (!cc3000_is_ready()) {}
+}
+
 //*****************************************************************************
 //
 //! cc3000_set_return

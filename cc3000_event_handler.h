@@ -164,9 +164,9 @@ extern "C"
 #define HCI_EVENT_CC3000_CAN_SHUT_DOWN 					0x99
 
 // the desired state (is beeing increased after a command has been sent)
-extern uint32 cc3000_desired_state;
+extern volatile uint32 cc3000_desired_state;
 // the current state (is beeing increased after a expected command has been received)
-extern uint32 cc3000_current_state;
+extern volatile uint32 cc3000_current_state;
 
 extern uint8 cc3000_close_socket;
 //*****************************************************************************
@@ -194,6 +194,9 @@ extern uint8 cc3000_event_handler(uint8 *data);
 //
 //*****************************************************************************
 extern uint8 cc3000_is_ready(void);
+
+void cc3000_wait(void);
+
 //*****************************************************************************
 //
 //! cc3000_get_return_uint8
