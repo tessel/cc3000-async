@@ -97,7 +97,7 @@ extern void cc3000_wlan_get_status(void);
 //!
 //
 //*****************************************************************************
-extern void cc3000_wlan_set_scan_params(uint16 scan_frequency, uint16 channel_mask );
+extern void cc3000_wlan_set_scan_params(uint32 scan_frequency, uint16 channel_mask );
 //*****************************************************************************
 //
 //! cc3000_wlan_connect

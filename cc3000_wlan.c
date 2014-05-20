@@ -75,7 +75,7 @@ void cc3000_wlan_get_status(void) {
 //!
 //
 //*****************************************************************************
-void cc3000_wlan_set_scan_params(uint16 scan_frequency, uint16 channel_mask ) {
+void cc3000_wlan_set_scan_params(uint32 scan_frequency, uint16 channel_mask ) {
 
 	uint8 count;
 
@@ -84,9 +84,6 @@ void cc3000_wlan_set_scan_params(uint16 scan_frequency, uint16 channel_mask ) {
 #endif
 	cc3000_desired_state++;
 
-	if (scan_frequency != 1) {	// 1 = magic, means 10 minute default
-		scan_frequency = scan_frequency * 1000;
-	}
 	cc3000_hci_start_command(HCI_CMND_WLAN_IOCTL_SET_SCANPARAM, 25*4);
 	cc3000_hci_send_uint32(36);	// This 36 appears to be undocumented and magic
 	cc3000_hci_send_uint32(scan_frequency);
