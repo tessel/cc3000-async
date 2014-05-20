@@ -7,7 +7,6 @@
 
 #include "cc3000_platform.h"
 #include "cc3000_spi.h"
-#include "cc3000_flow_handler.h"
 #include "cc3000_event_handler.h"
 
 uint8 cc3000_spi_rx_buffer[CC300_SPI_RX_BUFFER_SIZE];

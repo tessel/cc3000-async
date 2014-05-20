@@ -48,7 +48,6 @@ void cc3000_general_startup(uint8 patches_request) {
 	cc3000_clear_pin_WL_EN();
 	delay_us(50000);
 
-
 #if (CC3000_TRACE_LEVEL & CC3000_TRACE_LEVEL_DEBUG)
 	debug_str("Waiting for IRQ line to go high\n");
 #endif
